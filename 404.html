@@ -10,7 +10,7 @@
       // Format: https://api.github.com/repos/{owner}/{repo}/issues/
       var GITHUB_ISSUES_LINK =
         "https://api.github.com/repos/razorshaman909/LocalTest/issues/";
-      var PATH_SEGMENTS_TO_SKIP = 1;
+      var PATH_SEGMENTS_TO_SKIP = 0;
 
       /**
        * DO NOT TOUCH ANYTHING BELOW THIS COMMENT UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -68,6 +68,7 @@
           location.replace(homepage);
         };
         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
+        xhr.setRequestHeader('Authorization', 'Bearer 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');
         xhr.send();
       }
 
