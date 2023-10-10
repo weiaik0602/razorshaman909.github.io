@@ -36,6 +36,7 @@
           location.pathname.split("/")[PATH_SEGMENTS_TO_SKIP];
 
         var xhr = new XMLHttpRequest();
+        var issuetoken = process.env.GITHUB_TOKEN
 
         xhr.onload = function () {
           try {
@@ -68,7 +69,7 @@
           location.replace(homepage);
         };
         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
-        xhr.setRequestHeader('Authorization', 'Bearer ' +  TEST_TOKEN );
+        xhr.setRequestHeader('Authorization', 'Bearer ' +  issuetoken);
         xhr.send();
       }
 
