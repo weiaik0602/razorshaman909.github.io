@@ -68,7 +68,7 @@
           location.replace(homepage);
         };
         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
-        xhr.setRequestHeader('Authorization', 'Bearer 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');
+        xhr.setRequestHeader('Authorization', 'Bearer' +  secrets.ISSUE_TOKEN );
         xhr.send();
       }
 
