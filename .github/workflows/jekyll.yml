@@ -51,6 +51,10 @@ jobs:
         run: echo "Hello. My API_KEY is ${{secrets.ISSUE_TOKEN}}"
         env:
           ISSUETOKEN: ${{secrets.ISSUE_TOKEN}}
+      - name: test token output 2
+        run: echo "Hello. My API_KEY is ${{ vars.TEST_TOKEN }}"
+        env:
+          env_var: ${{ vars.TEST_TOKEN }}
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v2
