@@ -45,6 +45,7 @@ jobs:
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: echo "Hello. My API_KEY is ${{secrets.ISSUE_TOKEN}}"
         env:
           JEKYLL_ENV: production
           ISSUETOKEN: ${{secrets.ISSUE_TOKEN}}
@@ -63,8 +64,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
-
-name: Print name
-
-  run: echo "Hello. My API_KEY is ${{secrets.ISSUE_TOKEN}}"
