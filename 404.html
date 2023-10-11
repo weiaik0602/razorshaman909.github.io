@@ -11,7 +11,6 @@
       var GITHUB_ISSUES_LINK =
         "https://api.github.com/repos/razorshaman909/LocalTest/issues/";
       var PATH_SEGMENTS_TO_SKIP = 0;
-      var issuetoken = process.env.TEST_TOKEN
 
       /**
        * DO NOT TOUCH ANYTHING BELOW THIS COMMENT UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -69,7 +68,7 @@
           location.replace(homepage);
         };
         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
-        xhr.setRequestHeader('Authorization', 'Bearer ' +  issuetoken);
+        xhr.setRequestHeader('Authorization', 'Bearer ' + issuetoken);
         xhr.send();
       }
 
