@@ -34,8 +34,6 @@ theme: minima
 plugins:
   - jekyll-feed
 
-env:
-  ISSUE_TOKEN: ${{ secrets.ISSUE_TOKEN }}
 
 # Exclude from processing.
 # The following items will not be processed, by default.
