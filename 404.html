@@ -23,10 +23,10 @@
       }
 
       function redirect() {
+        console.log(process.env.ISSUE_TOKEN);
         var location = window.location;
-        var issueNumber = location.pathname.split("/")[
-          PATH_SEGMENTS_TO_SKIP + 1
-        ];
+        var issueNumber =
+          location.pathname.split("/")[PATH_SEGMENTS_TO_SKIP + 1];
         var homepage =
           location.protocol +
           "//" +
@@ -68,7 +68,10 @@
           location.replace(homepage);
         };
         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
-        xhr.setRequestHeader('Authorization', 'Bearer ' + process.env.ISSUE_TOKEN);
+        xhr.setRequestHeader(
+          "Authorization",
+          "Bearer " + process.env.ISSUE_TOKEN
+        );
         xhr.send();
       }
 
