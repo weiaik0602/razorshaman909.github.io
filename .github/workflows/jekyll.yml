@@ -47,17 +47,23 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: test token output
-        run: echo "Hello. My API_KEY is ${{secrets.ISSUE_TOKEN}}"
-        env:
-          ISSUETOKEN: ${{secrets.ISSUE_TOKEN}}
-      - name: test token output 2
-        run: echo "Hello. My API_KEY is ${{ vars.TEST_TOKEN }}"
-        env:
-          env_var: ${{ vars.TEST_TOKEN }}
+#      - name: token build
+#        run: echo "Hello. My API_KEY is ${{secrets.ISSUE_TOKEN}}"
+#        env:
+#          ISSUETOKEN: ${{secrets.ISSUE_TOKEN}}
+#      - name: test token output 2
+#        run: echo "Hello. My API_KEY is ${{ vars.TEST_TOKEN }}"
+#        env:
+#          env_var: ${{ vars.TEST_TOKEN }}
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v2
+      - name: Build
+      run: |
+        npm install
+        npm run-script build
+      env:
+        ISSUETOKEN: ${{secrets.ISSUE_TOKEN}
 
   # Deployment job
   deploy:
