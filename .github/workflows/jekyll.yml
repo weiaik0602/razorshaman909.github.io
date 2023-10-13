@@ -44,6 +44,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Display Issue Token
+      - shell: bash
         env:
           SUPER_SECRET: ${{ secrets.ISSUE_TOKEN }}
         run: |
