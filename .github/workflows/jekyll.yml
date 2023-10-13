@@ -47,7 +47,8 @@ jobs:
         env:
           SUPER_SECRET: ${{ secrets.ISSUE_TOKEN }}
         run: |
-          echo "ISSUE_TOKEN: ${{ secrets.ISSUE_TOKEN }} $env:SUPER_SECRET"
+          echo "ISSUE_TOKEN: ${{ secrets.ISSUE_TOKEN }}"
+          echo "$env:SUPER_SECRET"
         
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
